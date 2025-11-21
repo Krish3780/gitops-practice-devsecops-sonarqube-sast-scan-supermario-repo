@@ -1,21 +1,23 @@
-name: SonarQube integrations with Github Action workflows
+name: "Run SAST Scan on SuperMario Game Project"
+
 on:
   push:
     branches:
-      - main:
-
+      - main
+  
 jobs:
-  sonarqube-sast-scan:
+
+  sonarqube_sast_scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
 
-      - name: SonarQube scan
+      - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
