@@ -1,0 +1,21 @@
+name: SonarQube integrations with Github Action workflows
+on:
+  push:
+    branches:
+      - main:
+
+jobs:
+  sonarqube-sast-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: SonarQube scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   
