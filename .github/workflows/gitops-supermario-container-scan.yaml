@@ -1,0 +1,29 @@
+name: "Pull Docker image and execute container scan"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  VERSION: $(( $(cat version.txt) + 1 ))
+
+jobs:
+  pull-dockerimage-container-scan:
+    runs-on: ubuntu-latest
+
+    steps:     
+      - name: checkout the code
+        uses: actions/checkout@v5
+      - name: login to docker hub
+        run: echo "${{secrets.DOCKERHUB_TOKEN}}"  | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+      - name: Get docker image from docker hub
+        run: |
+          docker pull docker.io/krishna3780/supermario:${{env.VERSION}}
+          docker save -o supermario-containerscan.tar docker.io/krishna3780/supermario:${{env.VERSION}}
+      - name: Run trivy vulnerability in tarball mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          input: /github/workspace/supermario-containerscan.tar
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
