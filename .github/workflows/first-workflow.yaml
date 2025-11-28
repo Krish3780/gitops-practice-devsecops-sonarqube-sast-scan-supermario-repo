@@ -1,11 +1,11 @@
-name: first-workflow
-on:
-  schedule:
-   - cron: "* * * * *"
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# name: first-workflow
+# on:
+#   schedule:
+#    - cron: "* * * * *"
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
 
  
