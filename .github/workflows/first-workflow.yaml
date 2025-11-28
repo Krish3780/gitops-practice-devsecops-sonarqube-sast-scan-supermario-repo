@@ -5,7 +5,9 @@ on:
   #     - main
   # workflow_dispatch:
   schedule:
-   - cron: "2 * * * *"
+   - cron: "* * * * *"
+
+
 env:
   workflowname: first-workflow
      
