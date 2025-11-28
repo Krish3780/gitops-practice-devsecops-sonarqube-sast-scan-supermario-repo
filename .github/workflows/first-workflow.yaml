@@ -14,4 +14,4 @@ jobs:
         run: |
           echo "Myself Krishna"
           echo "${{toJSON(github)}}"
-          echo "${{secrets}}"
+          echo "${{toJSON(secrets)}}"
