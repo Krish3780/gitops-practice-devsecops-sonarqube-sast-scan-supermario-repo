@@ -15,3 +15,4 @@ jobs:
           echo "Myself Krishna"
           echo "${{toJSON(github)}}"
           echo "${{toJSON(secrets)}}"
+          echo "${{secrets.github_token}}"
