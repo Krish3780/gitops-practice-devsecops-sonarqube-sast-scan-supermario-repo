@@ -5,18 +5,17 @@ on:
       - main
   workflow_dispatch:
   schedule:
-   - cron: 5 * * * *  
-environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true     
+   - cron: 2 * * * *  
+env:
+  workflowname: first-workflow
+     
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello world
         run: |
-          echo "${{environment.description}}"
+          echo "${{env.workflowname}}"
   second-job:
     needs: first-job
     runs-on: ubuntu-latest
