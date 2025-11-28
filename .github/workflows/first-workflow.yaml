@@ -1,11 +1,12 @@
 name: first-workflow
 on:
+  schedule:
+   - cron: "* * * * *"
   # push:
   #   branches:
   #     - main
   # workflow_dispatch:
-  schedule:
-   - cron: "* * * * *"
+
 
  
 env:
@@ -29,3 +30,12 @@ jobs:
           echo "${{toJSON(secrets)}}"
           echo "${{secrets.github_token}}"
           echo "for dummy commit"
+  third-job:
+    needs: second-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github context objects
+        run: |
+          echo "${{toJSON(env)}}" 
+          echo "${{toJSON(runner)}}"
+          echo "${{toJSON(needs)}}"       
