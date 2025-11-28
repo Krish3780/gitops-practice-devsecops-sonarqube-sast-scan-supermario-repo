@@ -11,4 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Welcome message
-        run: echo "Myself Krishna"
+        run: |
+          echo "Myself Krishna"
+          echo "${{toJSON(github)}}"
+          echo "${{secrets}}"
