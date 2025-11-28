@@ -1,0 +1,14 @@
+name: first-workflow
+on: [ push,workflow-dispatch ]
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello world
+        run: echo "Hello World"
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome message
+        run: echo "Myself Krishna"
