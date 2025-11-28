@@ -27,4 +27,4 @@ jobs:
       - name: list the current dir
         run: |
           ls -l
-          find / -name 'supermario:temp'    
+          sudo find / -name 'supermario:temp'    
