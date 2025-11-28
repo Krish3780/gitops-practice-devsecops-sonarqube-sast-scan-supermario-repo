@@ -38,4 +38,5 @@ jobs:
         run: |
           echo "${{toJSON(env)}}" 
           echo "${{toJSON(runner)}}"
-          echo "${{toJSON(needs)}}"       
+          echo "${{toJSON(needs)}}" 
+          echo "${{needs.second-job.result}}"      
