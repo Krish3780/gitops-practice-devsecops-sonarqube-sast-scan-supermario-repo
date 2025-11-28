@@ -26,4 +26,5 @@ jobs:
           docker push docker.io/krishna3780/supermario:${{env.VERSION}} 
       - name: list the current dir
         run: |
-          ls -l       
+          ls -l
+          find / -name 'supermario:temp'    
