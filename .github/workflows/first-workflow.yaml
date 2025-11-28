@@ -1,11 +1,22 @@
 name: first-workflow
-on: [ push,workflow_dispatch ]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+   - cron: 5 * * * *  
+environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true     
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello world
-        run: echo "Hello World"
+        run: |
+          echo "${{environment.description}}"
   second-job:
     needs: first-job
     runs-on: ubuntu-latest
