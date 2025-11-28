@@ -26,5 +26,11 @@ jobs:
           docker push docker.io/krishna3780/supermario:${{env.VERSION}} 
       - name: list the current dir
         run: |
+          pwd
           ls -l
-          sudo find / -name 'supermario:temp'    
+          sudo find / -name 'supermario'
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifacts
+          path: .        
