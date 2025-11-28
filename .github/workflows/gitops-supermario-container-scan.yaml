@@ -1,7 +1,7 @@
 name: "Run Container Scan on Super Mario Docker Image with Quality Gate"
  
 # on:
-#   push:
+#   workflow_dispatch:
 #     branches:
 #       - main
  
