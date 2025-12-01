@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: print github context object
         run: |
-          echo "${{ toJSON(github) }}"
+          echo "${{toJSON(github)}}"
           echo "#########################"
-          echo "${{ github.event_name }}"
+          echo "${{github.event_name}}"
