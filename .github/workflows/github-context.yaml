@@ -10,7 +10,7 @@ env:
 jobs:
   display-variables:
     name: ${{ vars.JOB_NAME }}
-    runs-on: $ {{ vars.RUNNER }}
+    runs-on: ${{ vars.RUNNER }}
     if: ${{ github.event_name=='push' }}
     steps:
       # - name: print github context object
@@ -24,7 +24,9 @@ jobs:
       #     echo '${{ toJSON(env) }}'
       - name: Use Variables
         run: |
-          echo 'repo varaiable: ${{ REPO_VAR }}'
+          #echo 'repo varaiable: ${{ REPO_VAR }}'
+          echo "hello"
+    
 
 
           
