@@ -11,7 +11,7 @@ jobs:
   build-upload-docker-artifacts:
     runs-on: ubuntu-latest
     outputs:
-      job-status:${{ steps.pass.status }}
+      job-status: ${{ steps.pass.status }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v6
