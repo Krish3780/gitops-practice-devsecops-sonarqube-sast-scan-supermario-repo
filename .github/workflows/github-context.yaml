@@ -1,4 +1,6 @@
+
 name: Explore context objects (github)
+
 on:
   push:
     branches:
@@ -10,23 +12,21 @@ env:
 jobs:
   display-variables:
     name: ${{ vars.JOB_NAME }}
-    runs-on: ${{ vars.RUNNER }}
-    if: ${{ github.event_name=='push' }}
+    runs-on: ${{ vars.RUNNER }} # Ensure this is defined in repo variables
+    if: ${{ github.event_name == 'push' }}
     steps:
-      # - name: print github context object
+      # - name: Print GitHub context object
       #   run: |
       #     echo '${{ toJSON(github) }}'
       #     echo "#########################"
       #     echo "${{ github.event_name }}"
-      # - name: print env context
+
+      # - name: Print env context
       #   run: |
-      #     echo "${{ env.name }}"
+      #     echo "env.name: ${{ env.env-var }}"
       #     echo '${{ toJSON(env) }}'
+
       - name: Use Variables
         run: |
-          # echo 'repo varaiable: ${{ REPO_VAR }}'
-          echo "hello"
-    
-
-
-          
+          echo "Repo variable: ${{ vars.REPO_VAR }}"
+          echo "Hello"
