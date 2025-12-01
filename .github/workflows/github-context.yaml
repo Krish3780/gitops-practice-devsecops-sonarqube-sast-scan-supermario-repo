@@ -24,7 +24,7 @@ jobs:
       #     echo '${{ toJSON(env) }}'
       - name: Use Variables
         run: |
-          echo "repo varaiable: ${{ REPO_VAR }}"
+          echo 'repo varaiable: ${{ REPO_VAR }}'
 
 
           
