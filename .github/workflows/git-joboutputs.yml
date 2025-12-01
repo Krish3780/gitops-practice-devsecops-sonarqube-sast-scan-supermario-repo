@@ -1,0 +1,24 @@
+name: pass information from one job to another
+on:
+  push:
+    branches: 
+      - main:
+
+jobs:
+  job1:
+    outputs:
+      output1: ${{steps.step1.outputs.var1}}
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+        run: echo "var1=hello" >> "$GITHUB_OUTPUT"
+      - id: step2    
+        run: echo "var2=world" >> "$GITHUB_OUTPUT"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      run: echo "${{needs.job1.outputs.var1}}""
+      run: echo "${{needs.job1.outputs.var2}}""      
+
+    

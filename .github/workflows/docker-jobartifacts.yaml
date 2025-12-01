@@ -1,8 +1,8 @@
-name: build and publish docker image artificats
-on:
-  push:
-    branches:
-      - main
+# name: build and publish docker image artificats
+# on:
+#   push:
+#     branches:
+#       - main
 
 env:
   VERSION: 'temparary'      
@@ -40,4 +40,4 @@ jobs:
           name: my-artifacts
           path: destination/dir
       - name: Display structure of downloaded files
-        run: ls -R                
+        run: ls -R
