@@ -1,0 +1,14 @@
+name: Explore context objects (github)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  context-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print github context object
+        run: |
+          echo " ${{toJSON(github)}} "
+          echo "${{github.event_name}}"
