@@ -18,6 +18,6 @@ jobs:
       #     echo "${{ github.event_name }}"
       - name: print env context
         run: |
-          echo: "${{ env.name }}"
+          echo "${{ env.name }}"
           echo '${{ toJSON(env) }}'   
           
