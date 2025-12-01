@@ -7,6 +7,7 @@ on:
 jobs:
   context-data:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name=='push' }}
     steps:
       - name: print github context object
         run: |
