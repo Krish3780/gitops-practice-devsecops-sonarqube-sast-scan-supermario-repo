@@ -1,8 +1,8 @@
 name: pass information from one job to another
 on:
   push:
-    branches: 
-      - main:
+    branches:
+      - main
 
 jobs:
   job1:
