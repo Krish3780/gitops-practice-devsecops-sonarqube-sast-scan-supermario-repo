@@ -39,7 +39,10 @@ jobs:
       - name: pass some info to job2
         id: pass
         run: |
-          echo "status=${{job.status}}"  >> "$GITHUB_OUTPUT" 
+          echo "status=${{job.status}}"  >> "$GITHUB_OUTPUT"
+      - name: job status
+        run: |
+          echo "${{steps.pass.status}}"     
   download-artifact:
     runs-on: ubuntu-latest
     needs: build-upload-docker-artifacts      
