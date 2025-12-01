@@ -4,13 +4,20 @@ on:
     branches:
       - main
 
+env:
+  name: krishna
 jobs:
   context-data:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name=='pull_request' }}
+    if: ${{ github.event_name=='push' }}
     steps:
-      - name: print github context object
+      # - name: print github context object
+      #   run: |
+      #     echo '${{ toJSON(github) }}'
+      #     echo "#########################"
+      #     echo "${{ github.event_name }}"
+      - name: print env context
         run: |
-          echo '${{ toJSON(github) }}'
+          run: '{{ toJSON(env) }}'    
           echo "#########################"
-          echo "${{ github.event_name }}"
+          run: "${{ env.name}}"
