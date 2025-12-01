@@ -5,7 +5,7 @@ on:
       - main
 
 env:
-  VERSION: 'temp'      
+  VERSION: 'temparary'      
 
 jobs:
   build-upload-docker-artifacts:
@@ -28,7 +28,7 @@ jobs:
         run: |
           pwd
           ls -l
-          sudo find / -name 'supermario'
+          # sudo find / -name 'supermario'
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
