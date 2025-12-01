@@ -5,10 +5,12 @@ on:
       - main
 
 env:
-  name: krishna
+  env-var: ${{ vars.ENV_CONTEXT_VAR }}
+
 jobs:
-  context-data:
-    runs-on: ubuntu-latest
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    runs-on: $ {{ vars.RUNNER }}
     if: ${{ github.event_name=='push' }}
     steps:
       # - name: print github context object
@@ -16,8 +18,13 @@ jobs:
       #     echo '${{ toJSON(github) }}'
       #     echo "#########################"
       #     echo "${{ github.event_name }}"
-      - name: print env context
+      # - name: print env context
+      #   run: |
+      #     echo "${{ env.name }}"
+      #     echo '${{ toJSON(env) }}'
+      - name: Use Variables
         run: |
-          echo "${{ env.name }}"
-          echo '${{ toJSON(env) }}'   
+          echo "repo varaiable: ${{ REPO_VAR }}"
+
+
           
