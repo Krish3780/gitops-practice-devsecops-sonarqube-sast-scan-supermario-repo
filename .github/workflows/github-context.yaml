@@ -30,3 +30,7 @@ jobs:
         run: |
           echo "Repo variable: ${{ vars.REPO_VAR }}"
           echo "Hello"
+      - name: Disply job context object
+        run: |
+          echo "${{toJSON(job)}}"
+          echo "${{job.container.id}}"      
