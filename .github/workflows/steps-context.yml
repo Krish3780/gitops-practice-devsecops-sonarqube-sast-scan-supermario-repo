@@ -1,6 +1,6 @@
 name: Generate random number
 on:
-  worflow_dispatch:
+  workflow_dispatch:
     branches:
       - main
 
