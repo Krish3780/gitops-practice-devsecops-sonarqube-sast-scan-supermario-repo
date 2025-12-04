@@ -4,7 +4,7 @@ on:
     branches:
       - main
 
-job:
+jobs:
   Generate_Random:
     runs-on: ubuntu-latest
     id: generateRandom
