@@ -7,7 +7,6 @@ on:
 jobs:
   Generate_Random:
     runs-on: ubuntu-latest
-    id: generateRandom
     steps:
       - name: Generate number
         id: generate_number
