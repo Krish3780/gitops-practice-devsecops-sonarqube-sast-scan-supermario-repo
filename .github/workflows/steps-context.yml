@@ -1,6 +1,6 @@
 name: Generate random number
 on:
-  push:
+  worflow_dispatch:
     branches:
       - main
 
