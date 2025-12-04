@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ failure() }}
     steps:
-      - run: |
+      - name: show build and deploy status 
+        run: |
           echo "build and deploy failed ...."
 
