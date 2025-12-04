@@ -1,6 +1,8 @@
 name: Generate random number
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 job:
   Generate_Random:
